@@ -424,6 +424,12 @@ namespace Bicep.Core.Diagnostics
                 TextSpan,
                 "BCP079",
                 "This expression is referencing its own declaration, which is not allowed.");
+
+            public Diagnostic ResourceTypesUnavailable(ResourceTypeReference resourceTypeReference) => new Diagnostic(
+                TextSpan,
+                DiagnosticLevel.Warning,
+                "BCP080",
+                $"Resource type {resourceTypeReference.FormatName()} does not have types available");
         }
 
         public static DiagnosticBuilderInternal ForPosition(TextSpan span)
